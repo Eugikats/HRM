@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Change Form</title>
+  <!-- Bootstrap CDN for styling -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- jQuery CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Bootstrap JavaScript and Popper.js -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body {
+    background-color: #f8f9fa;
+  }
+  .hero-section {
+    background-color: #343a40;
+    color: white;
+    padding: 50px;
+    text-align: center;
+  }
+  .container {
+    margin-top: 40px;
+  }
+  .card {
+    margin-bottom: 20px;
+  }
+  .card-header {
+    background-color: #007bff;
+    color: white;
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Crystal's Resort HRMS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="employee_information.html">Employee Information</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="employee_changes.html">Employee Change</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="payreport.html">Payroll Report</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="claim_form.html">Claim Form</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<body>
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Employee Change Form</h2>
+    <form id="changeForm">
+      <!-- Employee ID -->
+      <div class="form-group">
+        <label for="employeeID">Employee ID:</label>
+        <input type="text" class="form-control" id="employeeID" name="employeeID" required>
+      </div>
+      
+      <!-- Type of Change -->
+      <div class="form-group">
+        <label for="changeType">Type of Change:</label>
+        <select class="form-control" id="changeType" name="changeType" required>
+          <option value="salary">Salary Adjustment</option>
+          <option value="position">Position Change</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <!-- New Details -->
+      <div class="form-group">
+        <label for="newDetails">New Details:</label>
+        <input type="text" class="form-control" id="newDetails" name="newDetails" required>
+      </div>
+
+      <!-- Effective Date -->
+      <div class="form-group">
+        <label for="effectiveDate">Effective Date:</label>
+        <input type="date" class="form-control" id="effectiveDate" name="effectiveDate" required>
+      </div>
+
+      <!-- Approved By -->
+      <div class="form-group">
+        <label for="approvedBy">Approved By:</label>
+        <input type="text" class="form-control" id="approvedBy" name="approvedBy" required>
+      </div>
+
+      <button type="button" class="btn btn-primary" onclick="displayChangeInfo()">Submit</button>
+    </form>
+
+    <!-- Display entered data -->
+    <div id="result" class="mt-4"></div>
+  </div>
+
+  <script>
+    function displayChangeInfo() {
+      const employeeID = $("#employeeID").val();
+      const changeType = $("#changeType").val();
+      const newDetails = $("#newDetails").val();
+      const effectiveDate = $("#effectiveDate").val();
+      const approvedBy = $("#approvedBy").val();
+
+      // Display the entered data under the form
+      $("#result").html(`
+        <h4>Employee Change Summary</h4>
+        <p><strong>Employee ID:</strong> ${employeeID}</p>
+        <p><strong>Change Type:</strong> ${changeType}</p>
+        <p><strong>New Details:</strong> ${newDetails}</p>
+        <p><strong>Effective Date:</strong> ${effectiveDate}</p>
+        <p><strong>Approved By:</strong> ${approvedBy}</p>
+      `);
+    }
+  </script>
+</body>
+</html>

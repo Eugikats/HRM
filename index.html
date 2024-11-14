@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crystal's Resort HR Management System</title>
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .hero-section {
+      background-color: #343a40;
+      color: white;
+      padding: 50px;
+      text-align: center;
+    }
+    .container {
+      margin-top: 40px;
+    }
+    .card {
+      margin-bottom: 20px;
+    }
+    .card-header {
+      background-color: #007bff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Crystal's Resort HRMS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="employee_information.html">Employee Information</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="employee_changes.html">Employee Change</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="payreport.html">Payroll Report</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="claim_form.html">Claim Form</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <h1>Welcome to Crystal's Resort HR Management System</h1>
+    <p>Streamlining Human Resources and Payroll for a better, more efficient workplace</p>
+  </section>
+
+  <!-- Content Section -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            Employee Information Form
+          </div>
+          <div class="card-body">
+            <p>Capture employee details such as name, department, position, and pay rate. This form is used to store and update employee information in the system.</p>
+            <a href="employee_information.html" class="btn btn-primary">Go to Form</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            Employee Change Form
+          </div>
+          <div class="card-body">
+            <p>Update employee details such as salary adjustments or position changes. Use this form to track modifications to employee information.</p>
+            <a href="employee_changes.html" class="btn btn-primary">Go to Form</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            Payroll Report Form
+          </div>
+          <div class="card-body">
+            <p>Generate detailed payroll reports, calculate deductions, and view employee net pay. This form helps with payroll calculations and reporting.</p>
+            <a href="payreport.html" class="btn btn-primary">Go to Form</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <div class="card-header">
+            Claim Form
+          </div>
+          <div class="card-body">
+            <p>For part-time employees to submit claims based on hours worked. This form calculates the total amount based on work hours and pay rate.</p>
+            <a href="claim_form.html" class="btn btn-primary">Go to Form</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

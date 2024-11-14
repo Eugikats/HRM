@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Change Form</title>
+</head>
+<body>
+  <h2>Employee Change Form</h2>
+  <form action="#" method="post">
+    <label for="employeeID">Employee ID:</label>
+    <input type="text" id="employeeID" name="employeeID" required><br><br>
+
+    <label for="changeType">Type of Change:</label>
+    <select id="changeType" name="changeType" required>
+      <option value="salary">Salary Adjustment</option>
+      <option value="position">Position Change</option>
+      <option value="other">Other</option>
+    </select><br><br>
+
+    <label for="newDetails">New Details:</label>
+    <input type="text" id="newDetails" name="newDetails" required><br><br>
+
+    <label for="effectiveDate">Effective Date:</label>
+    <input type="date" id="effectiveDate" name="effectiveDate" required><br><br>
+
+    <label for="approvedBy">Approved By:</label>
+    <input type="text" id="approvedBy" name="approvedBy" required><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

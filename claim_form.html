@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payroll Claim Form</title>
+  <!-- Bootstrap CDN for styling -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- jQuery CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Bootstrap JavaScript and Popper.js -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body {
+    background-color: #f8f9fa;
+  }
+  .hero-section {
+    background-color: #343a40;
+    color: white;
+    padding: 50px;
+    text-align: center;
+  }
+  .container {
+    margin-top: 40px;
+  }
+  .card {
+    margin-bottom: 20px;
+  }
+  .card-header {
+    background-color: #007bff;
+    color: white;
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Crystal's Resort HRMS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="employee_information.html">Employee Information</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="employee_changes.html">Employee Change</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="payreport.html">Payroll Report</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="claim_form.html">Claim Form</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<body>
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Payroll Claim Form</h2>
+    <form id="claimForm">
+      
+      <!-- Employee ID -->
+      <div class="form-group">
+        <label for="employeeID">Employee ID:</label>
+        <input type="text" class="form-control" id="employeeID" name="employeeID" required>
+      </div>
+      
+      <!-- Event/Service Date -->
+      <div class="form-group">
+        <label for="eventDate">Event/Service Date:</label>
+        <input type="date" class="form-control" id="eventDate" name="eventDate" required>
+      </div>
+      
+      <!-- Department -->
+      <div class="form-group">
+        <label for="department">Department:</label>
+        <input type="text" class="form-control" id="department" name="department" required>
+      </div>
+      
+      <!-- Hours Worked -->
+      <div class="form-group">
+        <label for="hoursWorked">Hours Worked:</label>
+        <input type="number" class="form-control" id="hoursWorked" name="hoursWorked" required>
+      </div>
+      
+      <!-- Pay Rate -->
+      <div class="form-group">
+        <label for="payRate">Pay Rate (UGX per hour):</label>
+        <input type="number" class="form-control" id="payRate" name="payRate" required>
+      </div>
+      
+      <!-- Total Amount (Calculated Dynamically) -->
+      <div class="form-group">
+        <label for="totalAmount">Total Amount (UGX):</label>
+        <input type="text" class="form-control" id="totalAmount" name="totalAmount" readonly>
+      </div>
+
+      <button type="button" class="btn btn-primary" onclick="calculateTotal()">Calculate Total</button>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    
+    <!-- Results Section -->
+    <div id="result" class="mt-4">
+      <!-- Calculation results will be displayed here -->
+    </div>
+  </div>
+
+  <script>
+    function calculateTotal() {
+      const hoursWorked = parseFloat($("#hoursWorked").val());
+      const payRate = parseFloat($("#payRate").val());
+      
+      // Calculate Total Amount based on hours worked and pay rate
+      const totalAmount = hoursWorked * payRate;
+      
+      // Display Total Amount
+      $("#totalAmount").val(totalAmount.toFixed(2));
+      
+      // Show detailed results
+      $("#result").html(`
+        <h4>Claim Summary</h4>
+        <p><strong>Hours Worked:</strong> ${hoursWorked} hours</p>
+        <p><strong>Pay Rate:</strong> UGX ${payRate.toFixed(2)} per hour</p>
+        <p><strong>Total Amount:</strong> UGX ${totalAmount.toFixed(2)}</p>
+      `);
+    }
+  </script>
+</body>
+</html>
