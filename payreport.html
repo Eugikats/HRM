@@ -6,181 +6,172 @@
   <title>Payroll Report Form</title>
   <!-- Bootstrap CDN for styling -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <!-- jQuery CDN -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <!-- Bootstrap JavaScript and Popper.js -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 <style>
-  body {
-    background-color: #f8f9fa;
-  }
-  .hero-section {
-    background-color: #343a40;
-    color: white;
-    padding: 50px;
-    text-align: center;
-  }
-  .container {
-    margin-top: 40px;
-  }
-  .card {
-    margin-bottom: 20px;
-  }
-  .card-header {
-    background-color: #007bff;
-    color: white;
-  }
+  body { background-color: #f8f9fa; }
+  .container { margin-top: 40px; }
 </style>
-</head>
 <body>
 
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Crystal's Resort HRMS</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="employee_information.html">Employee Information</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="employee_changes.html">Employee Change</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="payreport.html">Payroll Report</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="claim_form.html">Claim Form</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<body>
-  <div class="container mt-5">
-    <h2 class="text-center mb-4">Payroll Report Form</h2>
-    <form id="payrollForm">
-      
-      <!-- Report Month -->
-      <div class="form-group">
-        <label for="reportMonth">Report Month:</label>
-        <input type="month" class="form-control" id="reportMonth" name="reportMonth" required>
-      </div>
-      
-      <!-- Employee ID -->
-      <div class="form-group">
-        <label for="employeeID">Employee ID:</label>
-        <input type="text" class="form-control" id="employeeID" name="employeeID" required>
-      </div>
-      
-      <!-- Gross Pay -->
-      <div class="form-group">
-        <label for="grossPay">Gross Pay (UGX):</label>
-        <input type="number" class="form-control" id="grossPay" name="grossPay" required>
-      </div>
-      
-      <!-- PAYE Deduction -->
-      <div class="form-group">
-        <label for="payeDeduction">PAYE Deduction (UGX):</label>
-        <input type="text" class="form-control" id="payeDeduction" name="payeDeduction" readonly>
-      </div>
-
-      <!-- NSSF Deduction -->
-      <div class="form-group">
-        <label for="nssfDeduction">NSSF Deduction (UGX):</label>
-        <input type="text" class="form-control" id="nssfDeduction" name="nssfDeduction" readonly>
-      </div>
-
-      <!-- Total Deductions -->
-      <div class="form-group">
-        <label for="totalDeductions">Total Deductions (UGX):</label>
-        <input type="text" class="form-control" id="totalDeductions" name="totalDeductions" readonly>
-      </div>
-
-      <!-- Net Pay -->
-      <div class="form-group">
-        <label for="netPay">Net Pay (UGX):</label>
-        <input type="text" class="form-control" id="netPay" name="netPay" readonly>
-      </div>
-
-      <!-- Prepared By -->
-      <div class="form-group">
-        <label for="preparedBy">Prepared By:</label>
-        <input type="text" class="form-control" id="preparedBy" name="preparedBy" required>
-      </div>
-
-      <!-- Approved By -->
-      <div class="form-group">
-        <label for="approvedBy">Approved By:</label>
-        <input type="text" class="form-control" id="approvedBy" name="approvedBy" required>
-      </div>
-
-      <button type="button" class="btn btn-primary" onclick="calculatePayroll()">Calculate Payroll</button>
-    </form>
-    
-    <!-- Results Section -->
-    <div id="result" class="mt-4">
-      <!-- Calculation results will be displayed here -->
+    <a class="navbar-brand" href="#">Crystal's Resort HRMS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="employee_information.html">Employee Information</a></li>
+        <li class="nav-item"><a class="nav-link" href="employee_changes.html">Employee Change</a></li>
+        <li class="nav-item active"><a class="nav-link" href="payreport.html">Payroll Report</a></li>
+        <li class="nav-item"><a class="nav-link" href="claim_form.html">Claim Form</a></li>
+      </ul>
     </div>
+</nav>
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Payroll Report Form</h2>
+  <form id="payrollForm">
+    
+    <!-- Report Month -->
+    <div class="form-group">
+      <label for="reportMonth">Report Month:</label>
+      <input type="month" class="form-control" id="reportMonth" name="reportMonth" required>
+    </div>
+    
+    <!-- Employee ID -->
+    <div class="form-group">
+      <label for="employeeID">Employee ID:</label>
+      <input type="text" class="form-control" id="employeeID" name="employeeID" required>
+    </div>
+
+    <!-- Employee Type -->
+    <div class="form-group">
+      <label for="employeeType">Employee Type:</label>
+      <select class="form-control" id="employeeType" name="employeeType" required>
+        <option value="">Select</option>
+        <option value="full-time">Full-Time</option>
+        <option value="part-time">Part-Time</option>
+      </select>
+    </div>
+    
+    <!-- Account Number -->
+    <div class="form-group">
+      <label for="accountNumber">Account Number:</label>
+      <input type="text" class="form-control" id="accountNumber" name="accountNumber" required>
+      <small id="accountNumberError" class="form-text text-danger" style="display: none;">Please enter a valid account number (8-12 digits).</small>
+    </div>
+
+    <!-- Bank -->
+    <div class="form-group">
+      <label for="bank">Bank:</label>
+      <input type="text" class="form-control" id="bank" name="bank" required>
+    </div>
+
+    <!-- Gross Pay -->
+    <div class="form-group">
+      <label for="grossPay">Gross Pay (UGX):</label>
+      <input type="number" class="form-control" id="grossPay" name="grossPay" required>
+    </div>
+    
+    <!-- PAYE Deduction -->
+    <div class="form-group">
+      <label for="payeDeduction">PAYE Deduction (UGX):</label>
+      <input type="text" class="form-control" id="payeDeduction" name="payeDeduction" readonly>
+    </div>
+
+    <!-- NSSF Deduction Breakdown -->
+    <div class="form-group">
+      <label for="employerNssf">Employer NSSF Contribution (10%):</label>
+      <input type="text" class="form-control" id="employerNssf" name="employerNssf" readonly>
+    </div>
+    <div class="form-group">
+      <label for="employeeNssf">Employee NSSF Contribution (5%):</label>
+      <input type="text" class="form-control" id="employeeNssf" name="employeeNssf" readonly>
+    </div>
+    <div class="form-group">
+      <label for="totalNssf">Total NSSF Deduction:</label>
+      <input type="text" class="form-control" id="totalNssf" name="totalNssf" readonly>
+    </div>
+
+    <!-- Total Deductions -->
+    <div class="form-group">
+      <label for="totalDeductions">Total Deductions (UGX):</label>
+      <input type="text" class="form-control" id="totalDeductions" name="totalDeductions" readonly>
+    </div>
+
+    <!-- Net Pay -->
+    <div class="form-group">
+      <label for="netPay">Net Pay (UGX):</label>
+      <input type="text" class="form-control" id="netPay" name="netPay" readonly>
+    </div>
+
+    <button type="button" class="btn btn-primary" onclick="calculatePayroll()">Calculate Payroll</button>
+  </form>
+  
+  <div id="result" class="mt-4">
+    <!-- Calculation results will be displayed here -->
   </div>
+</div>
 
-  <script>
-    function calculatePayroll() {
-      const grossPay = parseFloat($("#grossPay").val());
+<script>
+  function calculatePayroll() {
+    const grossPay = parseFloat($("#grossPay").val());
+    const employeeType = $("#employeeType").val();
+    
+    let paye = 0, employerNssf = 0, employeeNssf = 0, totalNssf = 0, totalDeductions = 0, netPay = 0;
 
+    if (employeeType === "full-time") {
       // PAYE Calculation
-      let paye;
-      if (grossPay <= 235000) {
-          paye = 0;
-      } else if (grossPay <= 335000) {
+      if (grossPay > 235000) {
+        if (grossPay <= 335000) {
           paye = (grossPay - 235000) * 0.10;
-      } else if (grossPay <= 410000) {
+        } else if (grossPay <= 410000) {
           paye = (grossPay - 335000) * 0.20 + 10000;
-      } else if (grossPay <= 10000000) {
+        } else if (grossPay <= 10000000) {
           paye = (grossPay - 410000) * 0.30 + 25000;
-      } else {
+        } else {
           paye = ((grossPay - 410000) * 0.30 + 25000) + ((grossPay - 10000000) * 0.10);
+        }
       }
 
-      // NSSF Calculation
-      const employeeNSSF = grossPay * 0.05;
-      const employerNSSF = grossPay * 0.10;
-      const nssf = employeeNSSF + employerNSSF;
-
-      // Total Deductions
-      const totalDeductions = paye + nssf;
-
-      // Net Pay
-      const netPay = grossPay - totalDeductions;
-
-      //Approved By
-      const approvedBy = $("#approvedBy").val();
-      const preparedBy = $("#preparedBy").val();
-
-      // Display Results
-      $("#payeDeduction").val(paye.toFixed(2));
-      $("#nssfDeduction").val(nssf.toFixed(2));
-      $("#totalDeductions").val(totalDeductions.toFixed(2));
-      $("#netPay").val(netPay.toFixed(2));
-
-      // Show Detailed Results
-      $("#result").html(`
-        <h4>Payroll Calculation Summary</h4>
-        <p><strong>Gross Pay:</strong> UGX ${grossPay.toFixed(2)}</p>
-        <p><strong>PAYE Deduction:</strong> UGX ${paye.toFixed(2)}</p>
-        <p><strong>NSSF Deduction:</strong> UGX ${nssf.toFixed(2)} (Employee: UGX ${employeeNSSF.toFixed(2)}, Employer: UGX ${employerNSSF.toFixed(2)})</p>
-        <p><strong>Total Deductions:</strong> UGX ${totalDeductions.toFixed(2)}</p>
-        <p><strong>Net Pay:</strong> UGX ${netPay.toFixed(2)}</p>
-        <p><strong>Approved By:</strong> ${approvedBy}</p>
-        <p><strong>Prepared By:</strong> ${preparedBy}</p>
-      `);
+      // NSSF Calculation for Full-Time
+      employerNssf = grossPay * 0.10;  // 10% by employer
+      employeeNssf = grossPay * 0.05;  // 5% by employee
+      totalNssf = employerNssf + employeeNssf;
+    } else if (employeeType === "part-time") {
+      // Income Tax Calculation for Part-Time Employees
+      paye = grossPay * 0.10;
     }
-  </script>
-</body>
+
+    // Total Deductions and Net Pay Calculation
+    // The total Deductions excludes the employer NSSF contribution
+    totalDeductions = paye + employeeNssf;
+    netPay = grossPay - totalDeductions;
+
+    // Display Calculations
+    $("#payeDeduction").val(paye.toFixed(2));
+    $("#employerNssf").val(employerNssf.toFixed(2));
+    $("#employeeNssf").val(employeeNssf.toFixed(2));
+    $("#totalNssf").val(totalNssf.toFixed(2));
+    $("#totalDeductions").val(totalDeductions.toFixed(2));
+    $("#netPay").val(netPay.toFixed(2));
+
+    $("#result").html(`
+      <h4>Payroll Calculation Summary</h4>
+      <p><strong>Employee Type:</strong> ${employeeType === 'full-time' ? 'Full-Time' : 'Part-Time'}</p>
+      <p><strong>Gross Pay:</strong> UGX ${grossPay.toFixed(2)}</p>
+      <p><strong>PAYE Deduction:</strong> UGX ${paye.toFixed(2)}</p>
+      <p><strong>NSSF Deduction:</strong> Total UGX ${totalNssf.toFixed(2)} 
+        (Employer Contribution: UGX ${employerNssf.toFixed(2)}, Employee Contribution: UGX ${employeeNssf.toFixed(2)})</p>
+      <p><strong>Total Deductions:</strong> UGX ${totalDeductions.toFixed(2)}</p>
+      <p><strong>Net Pay:</strong> UGX ${netPay.toFixed(2)}</p>
+    `);
+  }
+</script>
+
+</body
 </html>

@@ -11,128 +11,140 @@
   <!-- Bootstrap JavaScript and Popper.js -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 <style>
   body {
     background-color: #f8f9fa;
   }
-  .hero-section {
-    background-color: #343a40;
-    color: white;
-    padding: 50px;
-    text-align: center;
-  }
   .container {
     margin-top: 40px;
   }
-  .card {
-    margin-bottom: 20px;
-  }
-  .card-header {
-    background-color: #007bff;
-    color: white;
-  }
 </style>
-</head>
 <body>
 
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Crystal's Resort HRMS</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="index.html">Home</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="employee_information.html">Employee Information</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="employee_changes.html">Employee Change</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="payreport.html">Payroll Report</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="claim_form.html">Claim Form</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+    <a class="navbar-brand" href="#">Crystal's Resort HRMS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="employee_information.html">Employee Information</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="employee_changes.html">Employee Change</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="payreport.html">Payroll Report</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="claim_form.html">Claim Form</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-<body>
-  <div class="container mt-5">
-    <h2 class="text-center mb-4">Employee Information Form</h2>
-    <form id="employeeForm">
-      <!-- Employee ID -->
-      <div class="form-group">
-        <label for="employeeID">Employee ID:</label>
-        <input type="text" class="form-control" id="employeeID" name="employeeID" required>
-      </div>
-      
-      <!-- Full Name -->
-      <div class="form-group">
-        <label for="fullName">Full Name:</label>
-        <input type="text" class="form-control" id="fullName" name="fullName" required>
-      </div>
-      
-      <!-- Department -->
-      <div class="form-group">
-        <label for="department">Department:</label>
-        <input type="text" class="form-control" id="department" name="department" required>
-      </div>
-      
-      <!-- Position -->
-      <div class="form-group">
-        <label for="position">Position:</label>
-        <input type="text" class="form-control" id="position" name="position" required>
-      </div>
-      
-      <!-- Employment Type -->
-      <div class="form-group">
-        <label for="employmentType">Employment Type:</label>
-        <select class="form-control" id="employmentType" name="employmentType" required>
-          <option value="full-time">Full-Time</option>
-          <option value="part-time">Part-Time</option>
-        </select>
-      </div>
-      
-      <!-- Pay Rate -->
-      <div class="form-group">
-        <label for="payRate">Pay Rate(Per Hour):</label>
-        <input type="number" class="form-control" id="payRate" name="payRate" required>
-      </div>
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Employee Information Form</h2>
+  <form id="employeeForm">
+    <!-- Employee ID -->
+    <div class="form-group">
+      <label for="employeeID">Employee ID:</label>
+      <input type="text" class="form-control" id="employeeID" name="employeeID" required>
+    </div>
+    
+    <!-- Full Name -->
+    <div class="form-group">
+      <label for="fullName">Full Name:</label>
+      <input type="text" class="form-control" id="fullName" name="fullName" required>
+    </div>
 
-      <button type="button" class="btn btn-primary" onclick="displayEmployeeInfo()">Submit</button>
-    </form>
+    <!-- Join Date -->
+    <div class="form-group">
+            <label for="joinDate">Join Date:</label>      
+            <input type="date" class="form-control" id="joinDate" name="joinDate" required>
+    </div>
+    
+    <!-- Department -->
+    <div class="form-group">
+      <label for="department">Department:</label>
+      <input type="text" class="form-control" id="department" name="department" required>
+    </div>
+    
+    <!-- Position -->
+    <div class="form-group">
+      <label for="position">Position:</label>
+      <input type="text" class="form-control" id="position" name="position" required>
+    </div>
+    
+    <!-- Employment Type -->
+    <div class="form-group">
+      <label for="employmentType">Employment Type:</label>
+      <select class="form-control" id="employmentType" name="employmentType" required>
+        <option value="salary">Salary</option>
+        <option value="wage">Wage</option>
+      </select>
+    </div>
+    
+    <!-- Pay Rate -->
+    <div class="form-group">
+      <label for="payRate">Pay Rate (Per Hour for Wage):</label>
+      <input type="number" class="form-control" id="payRate" name="payRate" required>
+    </div>
+    
+    <!-- Account Number -->
+    <div class="form-group">
+        <label for="accountNumber">Account Number:</label>
+        <input type="text" class="form-control" id="accountNumber" name="accountNumber" required>
+        <small id="accountNumberError" class="form-text text-danger" style="display: none;">Please enter a valid account number (8-12 digits).</small>
+        </div>
 
-    <!-- Display entered data -->
-    <div id="result" class="mt-4"></div>
-  </div>
+    <!-- Bank -->
+    <div class="form-group">
+        <label for="bank">Bank:</label>
+        <input type="text" class="form-control" id="bank" name="bank" required>
+    </div>
+    
+    <button type="button" class="btn btn-primary" onclick="displayEmployeeInfo()">Submit</button>
+  </form>
 
-  <script>
-    function displayEmployeeInfo() {
-      const employeeID = $("#employeeID").val();
-      const fullName = $("#fullName").val();
-      const department = $("#department").val();
-      const position = $("#position").val();
-      const employmentType = $("#employmentType").val();
-      const payRate = $("#payRate").val();
+  <!-- Display entered data -->
+  <div id="result" class="mt-4"></div>
+</div>
 
-      // Display the entered data under the form
-      $("#result").html(`
-        <h4>Employee Information Summary</h4>
-        <p><strong>Employee ID:</strong> ${employeeID}</p>
-        <p><strong>Full Name:</strong> ${fullName}</p>
-        <p><strong>Department:</strong> ${department}</p>
-        <p><strong>Position:</strong> ${position}</p>
-        <p><strong>Employment Type:</strong> ${employmentType}</p>
-        <p><strong>Pay Rate:</strong> UGX ${payRate}</p>
-      `);
-    }
-  </script>
+<script>
+  function displayEmployeeInfo() {
+    const employeeID = $("#employeeID").val();
+    const fullName = $("#fullName").val();
+    const department = $("#department").val();
+    const position = $("#position").val();
+    const employmentType = $("#employmentType").val();
+    const payRate = $("#payRate").val();
+    const joinDate = $("#joinDate").val();
+    const accountNumber = $("#accountNumber").val();
+    const bank = $("#bank").val();
+
+    // Set type display based on employment type selection
+    let paymentCategory = employmentType === "salary" ? "Salary" : "Pay Check";
+
+    // Display the entered data under the form
+    $("#result").html(`
+      <h4>Employee Information Summary</h4>
+      <p><strong>Employee ID:</strong> ${employeeID}</p>
+      <p><strong>Full Name:</strong> ${fullName}</p>
+      <p><strong>Join Date:</strong> ${joinDate}</p>
+      <p><strong>Department:</strong> ${department}</p>
+      <p><strong>Position:</strong> ${position}</p>
+      <p><strong>Employment Type:</strong> ${employmentType} (${paymentCategory})</p>
+      <p><strong>Pay Rate:</strong> UGX ${payRate}</p>
+      <p><strong>Bank Name:</strong> ${bank}</p>
+      <p><strong>Account Number:</strong> ${accountNumber}</p>
+    `);
+  }
+</script>
 </body>
 </html>

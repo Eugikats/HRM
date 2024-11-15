@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Details Form</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<style>
+  body {
+    background-color: #f8f9fa;
+  }
+  .container {
+    margin-top: 40px;
+  }
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Crystal's Resort HRMS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="employee_information.html">Employee Information</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="employee_changes.html">Employee Change</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="payreport.html">Payroll Report</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="claim_form.html">Claim Form</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<body>
+
+<div class="container">
+  <h2 class="text-center mb-4">Bank Details Form</h2>
+  <form id="bankForm">
+    <!-- Month -->
+    <div class="form-group">
+      <label for="reportMonth">Month:</label>
+      <input type="month" class="form-control" id="reportMonth" name="reportMonth" required>
+    </div>
+
+    <!-- Employee Name -->
+    <div class="form-group">
+      <label for="employeeName">Employee Name:</label>
+      <input type="text" class="form-control" id="employeeName" name="employeeName" required>
+    </div>
+
+    <!-- Account Number -->
+    <div class="form-group">
+        <label for="accountNumber">Account Number:</label>
+        <input type="text" class="form-control" id="accountNumber" name="accountNumber" required>
+        <small id="accountNumberError" class="form-text text-danger" style="display: none;">Please enter a valid account number (8-12 digits).</small>
+      </div>
+
+    <!-- Bank -->
+    <div class="form-group">
+      <label for="bank">Bank:</label>
+      <input type="text" class="form-control" id="bank" name="bank" required>
+    </div>
+
+    <!-- Employment Type -->
+    <div class="form-group">
+      <label for="employmentType">Employment Type:</label>
+      <select class="form-control" id="employmentType" name="employmentType" required>
+        <option value="full-time">Full-Time</option>
+        <option value="part-time">Part-Time</option>
+      </select>
+    </div>
+
+    <!-- Net Pay -->
+    <div class="form-group">
+      <label for="netPay">Net Pay (UGX):</label>
+      <input type="number" class="form-control" id="netPay" name="netPay" required>
+    </div>
+
+    <button type="button" class="btn btn-primary" onclick="calculateIncomeTax()">Submit</button>
+  </form>
+
+  <!-- Display results -->
+  <div id="result" class="mt-4"></div>
+</div>
+<script>
+    document.getElementById("accountNumber").addEventListener("input", function() {
+      const accountNumber = this.value;
+      const isValid = /^[0-9]{8,12}$/.test(accountNumber);
+  
+      if (!isValid) {
+        document.getElementById("accountNumberError").style.display = "block";
+        this.classList.add("is-invalid");
+      } else {
+        document.getElementById("accountNumberError").style.display = "none";
+        this.classList.remove("is-invalid");
+      }
+    });
+  </script>
+<script>
+  function calculateIncomeTax() {
+    const employeeName = $("#employeeName").val();
+    const reportMonth = $("#reportMonth").val();
+    const accountNumber = $("#accountNumber").val();
+    const bank = $("#bank").val();
+    const employmentType = $("#employmentType").val();
+    const netPay = parseFloat($("#netPay").val());
+
+    let incomeTax = 0;
+    if (employmentType === "part-time") {
+      incomeTax = netPay * 0.10;
+    }
+
+    // Display result below the form
+    $("#result").html(`
+      <h4>Bank Payment Summary</h4>
+      <p><strong>Month:</strong> ${reportMonth}</p>
+      <p><strong>Employee Name:</strong> ${employeeName}</p>
+      <p><strong>Account Number:</strong> ${accountNumber}</p>
+      <p><strong>Bank:</strong> ${bank}</p>
+      <p><strong>Net Pay:</strong> UGX ${netPay.toFixed(2)}</p>
+      ${employmentType === "part-time" ? `<p><strong>Income Tax (10%):</strong> UGX ${incomeTax.toFixed(2)}</p>` : ""}
+    `);
+  }
+</script>
+
+</body>
+</html>
